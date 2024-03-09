@@ -95,10 +95,13 @@ class DesktopContainer extends Component {
           >
             <Menu
               fixed={fixed ? "top" : null}
-              inverted={!fixed}
+              inverted={false} // Set inverted to false for a non-inverted (light) menu
               pointing={!fixed}
               secondary={!fixed}
               size="large"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.25)", // Set the background color with transparency
+              }}
             >
               <Container>
                 <Menu.Item as="a" active>
@@ -107,19 +110,6 @@ class DesktopContainer extends Component {
                 <Menu.Item as="a">Work</Menu.Item>
                 <Menu.Item as="a">Our Wines</Menu.Item>
                 <Menu.Item as="a">Shop Online</Menu.Item>
-                <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Cart
-                  </Button>
-                </Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
