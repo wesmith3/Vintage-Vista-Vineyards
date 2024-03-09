@@ -95,15 +95,16 @@ class DesktopContainer extends Component {
           >
             <Menu
               fixed={fixed ? "top" : null}
-              inverted={false} // Set inverted to false for a non-inverted (light) menu
+              inverted={false}
               pointing={!fixed}
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.25)", // Set the background color with transparency
+                backgroundColor: "rgba(255, 255, 255, 0.25)",
+                justifyContent: "center",
               }}
             >
-              <Container>
+              <Container style={{ display: "flex", justifyContent: "center" }}>
                 <Menu.Item as="a" active>
                   Home
                 </Menu.Item>
