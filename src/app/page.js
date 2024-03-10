@@ -38,10 +38,10 @@ const HomepageHeading = ({ mobile }) => (
       content="Vintage Vista Vineyards"
       inverted
       style={{
-        fontSize: mobile ? "2em" : "4em",
+        fontSize: mobile ? "2em" : "7.5em",
         fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em",
+        marginTop: mobile ? "1.5em" : ".85em",
         fontFamily: "'VV', sans-serif",
       }}
     />
@@ -162,12 +162,19 @@ class MobileContainer extends Component {
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Segment
-              inverted
-              textAlign="center"
-              style={{ minHeight: 350, padding: "1em 0em" }}
-              vertical
-            >
+          <Segment
+            textAlign="center"
+            vertical
+            style={{
+              minHeight: 700,
+              padding: "1em 0em",
+              backgroundImage: `url('/vineyard.jpg')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+            }}
+          >
               <Container>
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>
