@@ -204,14 +204,14 @@ ResponsiveContainer.propTypes = {
 
 const Home = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy"}}>
               Welcome to Vintage Vista
             </Header>
-            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville" }}>
+            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville", color: "#5C5C5C" }}>
               Nestled in the rolling hills of Napa Valley, our family-owned
               winery has been crafting award-winning wines since{" "}
               <strong>1972</strong>. Our passion for winemaking is deeply rooted
@@ -221,7 +221,7 @@ const Home = () => (
             <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
               Our Philosophy
             </Header>
-            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville" }}>
+            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville", color: "#5C5C5C" }}>
               At Vineyard Valley, we believe great wine starts in the vineyard.
               Our winemaker, James Wilkins, works closely with our viticulture
               team to cultivate the finest grapes that truly express the unique
@@ -232,17 +232,15 @@ const Home = () => (
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
             <Image
-              bordered
-              rounded
-              size="x-large"
+            className="grapes"
               alt="grapes"
-              src="/grapes.jpg"
+              src="/vines.jpg"
             />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge">Check Them Out</Button>
+            <Button size="huge" className="more-btn" >More About Us</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
