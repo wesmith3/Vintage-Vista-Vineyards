@@ -6,6 +6,14 @@
     font-family: 'Fancy';
     src: url('/FancyGlowPersonalUse-2OR0o.otf') format('opentype');
   }
+@font-face {
+    font-family: 'Baskerville';
+    src: url('/public/LibreBaskerville-DpdE.ttf') format('truetype');
+  }
+@font-face {
+    font-family: 'Bask-Cursive';
+    src: url('/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
+  }
 
   .header-container {
     position: relative;

@@ -91,6 +91,7 @@ const DesktopContainer = ({ children }) => {
               style={{
                 backgroundColor: fixed ? "white" : "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
+                fontFamily: fixed ? "Bask-Cursive" : "Baskerville"
               }}
             >
               <Container style={{ display: "flex", justifyContent: "center" }}>
@@ -210,17 +211,17 @@ const Home = () => (
             <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
               Welcome to Vintage Vista
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
+            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville" }}>
               Nestled in the rolling hills of Napa Valley, our family-owned
               winery has been crafting award-winning wines since{" "}
               <strong>1972</strong>. Our passion for winemaking is deeply rooted
               in the rich soil and warm California sun that nurture our precious
               vines.
             </p>
-            <Header as="h3" style={{ fontSize: "2em", fontFamily: "Fancy" }}>
-              Our Winemaking Philosophy
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Our Philosophy
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
+            <p style={{ fontSize: "1.5em", fontFamily: "Baskerville" }}>
               At Vineyard Valley, we believe great wine starts in the vineyard.
               Our winemaker, James Wilkins, works closely with our viticulture
               team to cultivate the finest grapes that truly express the unique
@@ -233,7 +234,7 @@ const Home = () => (
             <Image
               bordered
               rounded
-              size="large"
+              size="x-large"
               alt="grapes"
               src="/grapes.jpg"
             />
