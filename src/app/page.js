@@ -90,7 +90,7 @@ const DesktopContainer = ({ children }) => {
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: "rgba(255, 255, 255, .15)",
+                backgroundColor: fixed ? "white" : "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
               }}
             >
