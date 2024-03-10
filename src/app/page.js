@@ -40,27 +40,11 @@ const HomepageHeading = ({ mobile }) => (
         fontSize: mobile ? "2em" : "10em",
         fontWeight: "bolder",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : ".75em",
+        marginTop: mobile ? "1.5em" : ".25em",
         fontFamily: "'Fancy', sans-serif",
-        color:'white',
-        // color: '#A52A2A',
-        // backgroundColor:'white'
+        color:'white'
       }}
     />
-    {/* <Header
-      as="h2"
-      content="Do whatever you want when you want to."
-      inverted
-      style={{
-        fontSize: mobile ? "1.5em" : "1.7em",
-        fontWeight: "normal",
-        marginTop: mobile ? "0.5em" : "1.5em",
-      }}
-    />
-    <Button primary size="huge">
-      Get Started
-      <Icon name="right arrow" />
-    </Button> */}
   </Container>
 );
 
@@ -79,7 +63,7 @@ const DesktopContainer = ({ children }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((currentImageIndex + 1) % images.length);
-    }, 10000); // Change the image every 5 seconds
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [currentImageIndex, images.length]);
@@ -91,7 +75,7 @@ const DesktopContainer = ({ children }) => {
   return (
     <Media greaterThan="mobile">
       <InView onChange={toggleFixedMenu}>
-      <div className="segment-container">
+      <div className="header-container">
         <Segment
           textAlign="center"
           vertical
@@ -112,7 +96,7 @@ const DesktopContainer = ({ children }) => {
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.25)",
+                backgroundColor: "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
               }}
             >
@@ -326,13 +310,13 @@ const Home = () => (
       </Container>
     </Segment>
 
-    <Segment inverted vertical style={{ padding: "5em 0em" }}>
+    <Segment  vertical style={{ padding: "5em 0em" }}>
       <Container>
-        <Grid divided inverted stackable>
+        <Grid divided stackable>
           <Grid.Row>
             <Grid.Column width={3}>
-              <Header inverted as="h4" content="About" />
-              <List link inverted>
+              <Header  as="h4" content="About" />
+              <List link >
                 <List.Item as="a">Sitemap</List.Item>
                 <List.Item as="a">Contact Us</List.Item>
                 <List.Item as="a">Religious Ceremonies</List.Item>
@@ -340,8 +324,8 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Header inverted as="h4" content="Services" />
-              <List link inverted>
+              <Header  as="h4" content="Services" />
+              <List link >
                 <List.Item as="a">Banana Pre-Order</List.Item>
                 <List.Item as="a">DNA FAQ</List.Item>
                 <List.Item as="a">How To Access</List.Item>
@@ -349,7 +333,7 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
-              <Header as="h4" inverted>
+              <Header as="h4" >
                 Footer Header
               </Header>
               <p>
