@@ -26,7 +26,7 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-
+// * MAIN HEADER * //
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
@@ -44,12 +44,11 @@ const HomepageHeading = ({ mobile }) => (
     />
   </Container>
 );
-
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 };
 
-
+// * BACKGROUND PHOTOS & MENU BAR * //
 const DesktopContainer = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = ['/vineyard.jpg', '/vineyard2.jpg', '/grapes.jpg'];
@@ -100,7 +99,7 @@ const DesktopContainer = ({ children }) => {
                 </Menu.Item>
                 <Menu.Item as="a">Our History</Menu.Item>
                 <Menu.Item as="a">Our Wines</Menu.Item>
-                <Menu.Item as="a">Shop Online</Menu.Item>
+                <Menu.Item as="a">Shop</Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -112,11 +111,11 @@ const DesktopContainer = ({ children }) => {
       </Media>
     );
   }
-
 DesktopContainer.propTypes = {
   children: PropTypes.node,
 };
 
+// * MOBILE OVERALL MENU * //
 class MobileContainer extends Component {
   state = {};
 
@@ -188,22 +187,16 @@ class MobileContainer extends Component {
     );
   }
 }
-
 MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
 const ResponsiveContainer = ({ children }) => (
-  /* Heads up!
-   * For large applications it may not be best option to put all page into these containers at
-   * they will be rendered twice for SSR.
-   */
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
   </MediaContextProvider>
 );
-
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
@@ -231,7 +224,7 @@ const Home = () => (
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
-            {/* <Image bordered rounded size='large' src='/images/wireframe/white-image.png' /> */}
+            <Image bordered rounded size='large' alt='grapes' src='/grapes.jpg' />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
@@ -258,7 +251,7 @@ const Home = () => (
               I shouldnt have gone with their competitor.
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              {/* <Image avatar src='/images/avatar/large/nan.jpg' /> */}
+              <Image avatar alt='vineyard' src='/vineyard2.jpg' />
               <b>Nan</b> Chief Fun Officer Acme Toys
             </p>
           </Grid.Column>
