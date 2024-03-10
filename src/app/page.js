@@ -89,7 +89,7 @@ const DesktopContainer = ({ children }) => {
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: fixed ? "white" : "rgba(255, 255, 255, .15)",
+                backgroundColor: fixed ? "#D2C5B3" : "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
                 fontFamily: fixed ? "Bask-Cursive" : "Baskerville"
               }}
@@ -246,7 +246,7 @@ const Home = () => (
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: "0em" }} vertical>
+    <Segment style={{ padding: "0em", backgroundColor: "#F2EDE3" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
         <Grid.Row textAlign="center">
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
@@ -270,7 +270,7 @@ const Home = () => (
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
           Breaking The Grid, Grabs Your Attention
@@ -308,7 +308,7 @@ const Home = () => (
       </Container>
     </Segment>
 
-    <Segment vertical style={{ padding: "5em 0em" }}>
+    <Segment vertical style={{ padding: "5em 0em", backgroundColor: "#D2C5B3" }}>
       <Container>
         <Grid divided stackable>
           <Grid.Row>
