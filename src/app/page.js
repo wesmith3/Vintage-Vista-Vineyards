@@ -33,14 +33,16 @@ const { MediaContextProvider, Media } = createMedia({
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
+      className="header"
       as="h1"
-      content="Imagine-a-Company"
+      content="Vintage Vista Vineyards"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
         marginTop: mobile ? "1.5em" : "3em",
+        fontFamily: "'VV', sans-serif",
       }}
     />
     <Header
@@ -108,7 +110,7 @@ class DesktopContainer extends Component {
                 <Menu.Item as="a" active>
                   Home
                 </Menu.Item>
-                <Menu.Item as="a">Work</Menu.Item>
+                <Menu.Item as="a">Our History</Menu.Item>
                 <Menu.Item as="a">Our Wines</Menu.Item>
                 <Menu.Item as="a">Shop Online</Menu.Item>
               </Container>
