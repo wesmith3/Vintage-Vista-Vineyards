@@ -26,10 +26,7 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-/* Heads up!
- * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
- * components for such things.
- */
+
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
@@ -52,10 +49,7 @@ HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 };
 
-/* Heads up!
- * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
- * It can be more complicated, but you can create really flexible markup.
- */
+
 const DesktopContainer = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = ['/vineyard.jpg', '/vineyard2.jpg', '/grapes.jpg'];
@@ -96,7 +90,7 @@ const DesktopContainer = ({ children }) => {
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: "rgba(255, 255, 255, .15)",
+                backgroundColor: fixed ? "white" : "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
               }}
             >
