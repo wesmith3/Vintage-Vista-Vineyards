@@ -39,7 +39,7 @@ const HomepageHeading = ({ mobile }) => (
         marginBottom: 0,
         marginTop: mobile ? "1.5em" : ".25em",
         fontFamily: "'Fancy', sans-serif",
-        color:'white'
+        color: "white",
       }}
     />
   </Container>
@@ -51,7 +51,7 @@ HomepageHeading.propTypes = {
 // * BACKGROUND PHOTOS & MENU BAR * //
 const DesktopContainer = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = ['/vineyard.jpg', '/vineyard2.jpg', '/grapes.jpg'];
+  const images = ["/vineyard.jpg", "/vineyard2.jpg", "/grapes.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,20 +68,20 @@ const DesktopContainer = ({ children }) => {
   return (
     <Media greaterThan="mobile">
       <InView onChange={toggleFixedMenu}>
-      <div className="header-container">
-        <Segment
-          textAlign="center"
-          vertical
-          style={{
-            minHeight: 700,
-            padding: "1em 0em",
-            backgroundImage: `url(${images[currentImageIndex]})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            position: "relative",
-          }}
-        >
+        <div className="header-container">
+          <Segment
+            textAlign="center"
+            vertical
+            style={{
+              minHeight: 700,
+              padding: "1em 0em",
+              backgroundImage: `url(${images[currentImageIndex]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+            }}
+          >
             <Menu
               fixed={fixed ? "top" : null}
               inverted={false}
@@ -104,13 +104,13 @@ const DesktopContainer = ({ children }) => {
             </Menu>
             <HomepageHeading />
           </Segment>
-          </div>
-        </InView>
+        </div>
+      </InView>
 
-        {children}
-      </Media>
-    );
-  }
+      {children}
+    </Media>
+  );
+};
 DesktopContainer.propTypes = {
   children: PropTypes.node,
 };
@@ -149,19 +149,19 @@ class MobileContainer extends Component {
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            textAlign="center"
-            vertical
-            style={{
-              minHeight: 700,
-              padding: "1em 0em",
-              backgroundImage: `url('/vineyard.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-            }}
-          >
+            <Segment
+              textAlign="center"
+              vertical
+              style={{
+                minHeight: 700,
+                padding: "1em 0em",
+                backgroundImage: `url('/vineyard.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                position: "relative",
+              }}
+            >
               <Container>
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>
@@ -207,24 +207,36 @@ const Home = () => (
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Companions
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Welcome to Vintage Vista
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give your company superpowers to do things that they never
-              thought possible. Let us delight your customers and empower your
-              needs... through pure data analytics.
+              Nestled in the rolling hills of Napa Valley, our family-owned
+              winery has been crafting award-winning wines since{" "}
+              <strong>1972</strong>. Our passion for winemaking is deeply rooted
+              in the rich soil and warm California sun that nurture our precious
+              vines.
             </p>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Make Bananas That Can Dance
+            <Header as="h3" style={{ fontSize: "2em", fontFamily: "Fancy" }}>
+              Our Winemaking Philosophy
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              Yes thats right, you thought it was the stuff of dreams, but even
-              bananas can be bioengineered.
+              At Vineyard Valley, we believe great wine starts in the vineyard.
+              Our winemaker, James Wilkins, works closely with our viticulture
+              team to cultivate the finest grapes that truly express the unique
+              terroir of our estate vineyards. In the cellar, we take a minimal
+              intervention approach, allowing the natural flavors and character
+              of the fruit to shine through.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
-            <Image bordered rounded size='large' alt='grapes' src='/grapes.jpg' />
+            <Image
+              bordered
+              rounded
+              size="large"
+              alt="grapes"
+              src="/grapes.jpg"
+            />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
@@ -251,7 +263,7 @@ const Home = () => (
               I shouldnt have gone with their competitor.
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image avatar alt='vineyard' src='/vineyard2.jpg' />
+              <Image avatar alt="vineyard" src="/vineyard2.jpg" />
               <b>Nan</b> Chief Fun Officer Acme Toys
             </p>
           </Grid.Column>
@@ -297,13 +309,13 @@ const Home = () => (
       </Container>
     </Segment>
 
-    <Segment  vertical style={{ padding: "5em 0em" }}>
+    <Segment vertical style={{ padding: "5em 0em" }}>
       <Container>
         <Grid divided stackable>
           <Grid.Row>
             <Grid.Column width={3}>
-              <Header  as="h4" content="About" />
-              <List link >
+              <Header as="h4" content="About" />
+              <List link>
                 <List.Item as="a">Sitemap</List.Item>
                 <List.Item as="a">Contact Us</List.Item>
                 <List.Item as="a">Religious Ceremonies</List.Item>
@@ -311,8 +323,8 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Header  as="h4" content="Services" />
-              <List link >
+              <Header as="h4" content="Services" />
+              <List link>
                 <List.Item as="a">Banana Pre-Order</List.Item>
                 <List.Item as="a">DNA FAQ</List.Item>
                 <List.Item as="a">How To Access</List.Item>
@@ -320,9 +332,7 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
-              <Header as="h4" >
-                Footer Header
-              </Header>
+              <Header as="h4">Footer Header</Header>
               <p>
                 Extra space for a call to action inside the footer that could
                 help re-engage users.
