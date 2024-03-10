@@ -2,3 +2,11 @@
     font-family: 'VV';
     src: url('/VibrantHandmark-Yzpza.otf') format('opentype');
   }
+@font-face {
+    font-family: 'Fancy';
+    src: url('/FancyGlowPersonalUse-2OR0o.otf') format('opentype');
+  }
+
+.segment-container {
+  transition: background-image 10s ease-in-out;
+}

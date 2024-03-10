@@ -2,7 +2,7 @@
 import Vineyard from "../../public/vineyard.jpg";
 import { createMedia } from "@artsy/fresnel";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { InView } from "react-intersection-observer";
 import {
   Button,
@@ -33,19 +33,21 @@ const { MediaContextProvider, Media } = createMedia({
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
-      className="header"
       as="h1"
       content="Vintage Vista Vineyards"
       inverted
       style={{
-        fontSize: mobile ? "2em" : "7.5em",
-        fontWeight: "normal",
+        fontSize: mobile ? "2em" : "10em",
+        fontWeight: "bolder",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : ".85em",
-        fontFamily: "'VV', sans-serif",
+        marginTop: mobile ? "1.5em" : ".75em",
+        fontFamily: "'Fancy', sans-serif",
+        color:'white',
+        // color: '#A52A2A',
+        // backgroundColor:'white'
       }}
     />
-    <Header
+    {/* <Header
       as="h2"
       content="Do whatever you want when you want to."
       inverted
@@ -58,7 +60,7 @@ const HomepageHeading = ({ mobile }) => (
     <Button primary size="huge">
       Get Started
       <Icon name="right arrow" />
-    </Button>
+    </Button> */}
   </Container>
 );
 
@@ -70,31 +72,39 @@ HomepageHeading.propTypes = {
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
-class DesktopContainer extends Component {
-  state = {};
+const DesktopContainer = ({ children }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ['/vineyard.jpg', '/vineyard2.jpg', '/grapes.jpg'];
 
-  toggleFixedMenu = (inView) => this.setState({ fixed: !inView });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((currentImageIndex + 1) % images.length);
+    }, 10000); // Change the image every 5 seconds
 
-  render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
+    return () => clearInterval(interval);
+  }, [currentImageIndex, images.length]);
 
-    return (
-      <Media greaterThan="mobile">
-        <InView onChange={this.toggleFixedMenu}>
-          <Segment
-            textAlign="center"
-            vertical
-            style={{
-              minHeight: 700,
-              padding: "1em 0em",
-              backgroundImage: `url('/vineyard.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-            }}
-          >
+  const [fixed, setFixed] = useState(false);
+
+  const toggleFixedMenu = (inView) => setFixed(!inView);
+
+  return (
+    <Media greaterThan="mobile">
+      <InView onChange={toggleFixedMenu}>
+      <div className="segment-container">
+        <Segment
+          textAlign="center"
+          vertical
+          style={{
+            minHeight: 700,
+            padding: "1em 0em",
+            backgroundImage: `url(${images[currentImageIndex]})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            position: "relative",
+          }}
+        >
             <Menu
               fixed={fixed ? "top" : null}
               inverted={false}
@@ -117,13 +127,13 @@ class DesktopContainer extends Component {
             </Menu>
             <HomepageHeading />
           </Segment>
+          </div>
         </InView>
 
         {children}
       </Media>
     );
   }
-}
 
 DesktopContainer.propTypes = {
   children: PropTypes.node,
