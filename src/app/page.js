@@ -26,7 +26,7 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-
+// * MAIN HEADER * //
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
@@ -39,20 +39,21 @@ const HomepageHeading = ({ mobile }) => (
         marginBottom: 0,
         marginTop: mobile ? "1.5em" : ".25em",
         fontFamily: "'Fancy', sans-serif",
-        color:'white'
+        color: "white",
+        className: "text-stroke",
+        dataText: "Vintage Vista Vineyards" // Add this prop
       }}
     />
   </Container>
 );
-
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 };
 
-
+// * BACKGROUND PHOTOS & MENU BAR * //
 const DesktopContainer = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = ['/vineyard.jpg', '/vineyard2.jpg', '/grapes.jpg'];
+  const images = ["/vineyard.jpg", "/vineyard2.jpg", "/grapes.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,20 +70,20 @@ const DesktopContainer = ({ children }) => {
   return (
     <Media greaterThan="mobile">
       <InView onChange={toggleFixedMenu}>
-      <div className="header-container">
-        <Segment
-          textAlign="center"
-          vertical
-          style={{
-            minHeight: 700,
-            padding: "1em 0em",
-            backgroundImage: `url(${images[currentImageIndex]})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            position: "relative",
-          }}
-        >
+        <div className="header-container">
+          <Segment
+            textAlign="center"
+            vertical
+            style={{
+              minHeight: 700,
+              padding: "1em 0em",
+              backgroundImage: `url(${images[currentImageIndex]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+            }}
+          >
             <Menu
               fixed={fixed ? "top" : null}
               inverted={false}
@@ -90,8 +91,9 @@ const DesktopContainer = ({ children }) => {
               secondary={!fixed}
               size="large"
               style={{
-                backgroundColor: fixed ? "white" : "rgba(255, 255, 255, .15)",
+                backgroundColor: fixed ? "#D2C5B3" : "rgba(255, 255, 255, .15)",
                 justifyContent: "center",
+                fontFamily: fixed ? "Bask-Cursive" : "Baskerville",
               }}
             >
               <Container style={{ display: "flex", justifyContent: "center" }}>
@@ -100,23 +102,23 @@ const DesktopContainer = ({ children }) => {
                 </Menu.Item>
                 <Menu.Item as="a">Our History</Menu.Item>
                 <Menu.Item as="a">Our Wines</Menu.Item>
-                <Menu.Item as="a">Shop Online</Menu.Item>
+                <Menu.Item as="a">Shop</Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
           </Segment>
-          </div>
-        </InView>
+        </div>
+      </InView>
 
-        {children}
-      </Media>
-    );
-  }
-
+      {children}
+    </Media>
+  );
+};
 DesktopContainer.propTypes = {
   children: PropTypes.node,
 };
 
+// * MOBILE OVERALL MENU * //
 class MobileContainer extends Component {
   state = {};
 
@@ -150,19 +152,19 @@ class MobileContainer extends Component {
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            textAlign="center"
-            vertical
-            style={{
-              minHeight: 700,
-              padding: "1em 0em",
-              backgroundImage: `url('/vineyard.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-            }}
-          >
+            <Segment
+              textAlign="center"
+              vertical
+              style={{
+                minHeight: 700,
+                padding: "1em 0em",
+                backgroundImage: `url('/vineyard.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                position: "relative",
+              }}
+            >
               <Container>
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>
@@ -188,97 +190,130 @@ class MobileContainer extends Component {
     );
   }
 }
-
 MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
 const ResponsiveContainer = ({ children }) => (
-  /* Heads up!
-   * For large applications it may not be best option to put all page into these containers at
-   * they will be rendered twice for SSR.
-   */
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
   </MediaContextProvider>
 );
-
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
 
 const Home = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment
+      style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }}
+      vertical
+    >
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Companions
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Welcome to Vintage Vista
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              We can give your company superpowers to do things that they never
-              thought possible. Let us delight your customers and empower your
-              needs... through pure data analytics.
+            <p
+              style={{
+                fontSize: "1.5em",
+                fontFamily: "Baskerville",
+                color: "#5C5C5C",
+              }}
+            >
+              Nestled in the rolling hills of Napa Valley, our family-owned
+              winery has been crafting award-winning wines since{" "}
+              <strong>1972</strong>. Our passion for winemaking is deeply rooted
+              in the rich soil and warm California sun that nurture our precious
+              vines.
             </p>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Make Bananas That Can Dance
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Our Philosophy
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              Yes thats right, you thought it was the stuff of dreams, but even
-              bananas can be bioengineered.
+            <p
+              style={{
+                fontSize: "1.5em",
+                fontFamily: "Baskerville",
+                color: "#5C5C5C",
+              }}
+            >
+              At Vineyard Valley, we believe great wine starts in the vineyard.
+              Our winemaker, <strong>James Wilkins</strong>, works closely with our viticulture
+              team to cultivate the finest grapes that truly express the unique
+              terroir of our estate vineyards. In the cellar, we take a minimal
+              intervention approach, allowing the natural flavors and character
+              of the fruit to shine through.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
-            {/* <Image bordered rounded size='large' src='/images/wireframe/white-image.png' /> */}
+            <Image className="grapes" alt="grapes" src="/vines.jpg" />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge">Check Them Out</Button>
+            <Button size="huge" className="btn">
+              More About Us
+            </Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: "0em" }} vertical>
+    <Segment style={{ padding: "0em", backgroundColor: "#F2EDE3" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
         <Grid.Row textAlign="center">
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              What a Company
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Join Our Wine Club!
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              That is what they all say about us
+            <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
+              Members receive exclusive access to limited production wines,
+              invitations to events, and generous discounts. Cant make it to the
+              winery? Browse and purchase our exceptional wines online for
+              delivery to your door.
             </p>
+            <Grid.Column textAlign="center">
+            <Button size="huge" className="btn">
+              Join Today!
+            </Button>
+          </Grid.Column>
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              I shouldnt have gone with their competitor.
+            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+              Online Ordering / Shipping
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              {/* <Image avatar src='/images/avatar/large/nan.jpg' /> */}
-              <b>Nan</b> Chief Fun Officer Acme Toys
+            <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
+              Cant make it to the winery? Browse and purchase our exceptional
+              wines online for delivery to your door.
             </p>
+            <Grid.Column textAlign="center">
+            <Button size="huge" className="btn">
+              Order Now!
+            </Button>
+          </Grid.Column>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment
+      style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }}
+      vertical
+    >
       <Container text>
-        <Header as="h3" style={{ fontSize: "2em" }}>
-          Breaking The Grid, Grabs Your Attention
+        <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
+          Join Us for a Tasting
         </Header>
-        <p style={{ fontSize: "1.33em" }}>
-          Instead of focusing on content creation and hard work, we have learned
-          how to master the art of doing nothing by providing massive amounts of
-          whitespace and generic content that can seem massive, monolithic and
-          worth your attention.
+        <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
+          Visit our gorgeous Tuscan-style tasting room and sip your way through
+          our current release wines. Our friendly and knowledgeable staff will
+          guide you through the tasting experience as you savor each pour. Stay
+          for a tour of our vineyards and production facility.
         </p>
-        <Button as="a" size="large">
-          Read More
+        <Button as="a" size="large" className="btn">
+          Book a Tasting!
         </Button>
 
         <Divider
@@ -290,27 +325,30 @@ const Home = () => (
           <a href="#">Case Studies</a>
         </Divider>
 
-        <Header as="h3" style={{ fontSize: "2em" }}>
+        <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
           Did We Tell You About Our Bananas?
         </Header>
-        <p style={{ fontSize: "1.33em" }}>
+        <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
           Yes I know you probably disregarded the earlier boasts as non-sequitur
           filler content, but its really true. It took years of gene splicing
           and combinatory DNA research, but our bananas can really dance.
         </p>
-        <Button as="a" size="large">
+        <Button as="a" size="large" className="btn">
           Im Still Quite Interested
         </Button>
       </Container>
     </Segment>
 
-    <Segment  vertical style={{ padding: "5em 0em" }}>
+    <Segment
+      vertical
+      style={{ padding: "5em 0em", backgroundColor: "#D2C5B3" }}
+    >
       <Container>
         <Grid divided stackable>
           <Grid.Row>
             <Grid.Column width={3}>
-              <Header  as="h4" content="About" />
-              <List link >
+              <Header as="h4" content="About" />
+              <List link>
                 <List.Item as="a">Sitemap</List.Item>
                 <List.Item as="a">Contact Us</List.Item>
                 <List.Item as="a">Religious Ceremonies</List.Item>
@@ -318,8 +356,8 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Header  as="h4" content="Services" />
-              <List link >
+              <Header as="h4" content="Services" />
+              <List link>
                 <List.Item as="a">Banana Pre-Order</List.Item>
                 <List.Item as="a">DNA FAQ</List.Item>
                 <List.Item as="a">How To Access</List.Item>
@@ -327,9 +365,7 @@ const Home = () => (
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
-              <Header as="h4" >
-                Footer Header
-              </Header>
+              <Header as="h4">Footer Header</Header>
               <p>
                 Extra space for a call to action inside the footer that could
                 help re-engage users.
