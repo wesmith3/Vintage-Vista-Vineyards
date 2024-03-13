@@ -40,6 +40,8 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "1.5em" : ".25em",
         fontFamily: "'Fancy', sans-serif",
         color: "white",
+        className: "text-stroke",
+        dataText: "Vintage Vista Vineyards" // Add this prop
       }}
     />
   </Container>
@@ -238,7 +240,7 @@ const Home = () => (
               }}
             >
               At Vineyard Valley, we believe great wine starts in the vineyard.
-              Our winemaker, James Wilkins, works closely with our viticulture
+              Our winemaker, <strong>James Wilkins</strong>, works closely with our viticulture
               team to cultivate the finest grapes that truly express the unique
               terroir of our estate vineyards. In the cellar, we take a minimal
               intervention approach, allowing the natural flavors and character
@@ -268,15 +270,29 @@ const Home = () => (
             </Header>
             <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
               Members receive exclusive access to limited production wines,
-              invitations to events, and generous discounts. Can't make it to
-              the winery? Browse and purchase our exceptional wines online for
+              invitations to events, and generous discounts. Cant make it to the
+              winery? Browse and purchase our exceptional wines online for
               delivery to your door.
             </p>
+            <Grid.Column textAlign="center">
+            <Button size="huge" className="btn">
+              Join Today!
+            </Button>
+          </Grid.Column>
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
             <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-              I shouldnt have gone with their competitor
+              Online Ordering / Shipping
             </Header>
+            <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
+              Cant make it to the winery? Browse and purchase our exceptional
+              wines online for delivery to your door.
+            </p>
+            <Grid.Column textAlign="center">
+            <Button size="huge" className="btn">
+              Order Now!
+            </Button>
+          </Grid.Column>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -297,7 +313,7 @@ const Home = () => (
           for a tour of our vineyards and production facility.
         </p>
         <Button as="a" size="large" className="btn">
-          Read More
+          Book a Tasting!
         </Button>
 
         <Divider
