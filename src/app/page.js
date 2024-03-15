@@ -3,6 +3,7 @@ import Vineyard from "../../public/vineyard.jpg";
 import { createMedia } from "@artsy/fresnel";
 import PropTypes from "prop-types";
 import React, { Component, useState, useEffect } from "react";
+import Link from 'next/link';
 import { InView } from "react-intersection-observer";
 import {
   Button,
