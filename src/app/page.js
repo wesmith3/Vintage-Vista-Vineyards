@@ -97,13 +97,19 @@ const DesktopContainer = ({ children }) => {
               }}
             >
               <Container style={{ display: "flex", justifyContent: "center" }}>
-                <Menu.Item as="a" active>
-                  Home
-                </Menu.Item>
-                <Menu.Item as="a">Our History</Menu.Item>
-                <Menu.Item as="a">Our Wines</Menu.Item>
-                <Menu.Item as="a">Shop</Menu.Item>
-              </Container>
+  <Menu.Item as={Link} to="/" activeClassName="active" exact>
+    Home
+  </Menu.Item>
+  <Menu.Item as={Link} to="/history" activeClassName="active">
+    Our History
+  </Menu.Item>
+  <Menu.Item as={Link} to="/wines" activeClassName="active">
+    Our Wines
+  </Menu.Item>
+  <Menu.Item as={Link} to="/shop" activeClassName="active">
+    Shop
+  </Menu.Item>
+</Container>
             </Menu>
             <HomepageHeading />
           </Segment>
