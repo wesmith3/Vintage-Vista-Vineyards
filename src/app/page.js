@@ -3,6 +3,7 @@ import Vineyard from "../../public/vineyard.jpg";
 import { createMedia } from "@artsy/fresnel";
 import PropTypes from "prop-types";
 import React, { Component, useState, useEffect } from "react";
+import Link from "next/link";
 import { InView } from "react-intersection-observer";
 import {
   Button,
@@ -41,7 +42,7 @@ const HomepageHeading = ({ mobile }) => (
         fontFamily: "'Fancy', sans-serif",
         color: "white",
         className: "text-stroke",
-        dataText: "Vintage Vista Vineyards" // Add this prop
+        dataText: "Vintage Vista Vineyards", // Add this prop
       }}
     />
   </Container>
@@ -97,12 +98,34 @@ const DesktopContainer = ({ children }) => {
               }}
             >
               <Container style={{ display: "flex", justifyContent: "center" }}>
-                <Menu.Item as="a" active>
+                <Menu.Item
+                  as="a"
+                  href="/"
+                  active={window.location.pathname === "/"}
+                >
                   Home
                 </Menu.Item>
-                <Menu.Item as="a">Our History</Menu.Item>
-                <Menu.Item as="a">Our Wines</Menu.Item>
-                <Menu.Item as="a">Shop</Menu.Item>
+                <Menu.Item
+                  as="a"
+                  href="/history"
+                  active={window.location.pathname === "/history"}
+                >
+                  Our History
+                </Menu.Item>
+                <Menu.Item
+                  as="a"
+                  href="/wines"
+                  active={window.location.pathname === "/wines"}
+                >
+                  Our Wines
+                </Menu.Item>
+                <Menu.Item
+                  as="a"
+                  href="/shop"
+                  active={window.location.pathname === "/shop"}
+                >
+                  Shop
+                </Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -240,11 +263,11 @@ const Home = () => (
               }}
             >
               At Vineyard Valley, we believe great wine starts in the vineyard.
-              Our winemaker, <strong>James Wilkins</strong>, works closely with our viticulture
-              team to cultivate the finest grapes that truly express the unique
-              terroir of our estate vineyards. In the cellar, we take a minimal
-              intervention approach, allowing the natural flavors and character
-              of the fruit to shine through.
+              Our winemaker, <strong>James Wilkins</strong>, works closely with
+              our viticulture team to cultivate the finest grapes that truly
+              express the unique terroir of our estate vineyards. In the cellar,
+              we take a minimal intervention approach, allowing the natural
+              flavors and character of the fruit to shine through.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
@@ -275,10 +298,10 @@ const Home = () => (
               delivery to your door.
             </p>
             <Grid.Column textAlign="center">
-            <Button size="huge" className="btn">
-              Join Today!
-            </Button>
-          </Grid.Column>
+              <Button size="huge" className="btn">
+                Join Today!
+              </Button>
+            </Grid.Column>
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
             <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
@@ -289,10 +312,10 @@ const Home = () => (
               wines online for delivery to your door.
             </p>
             <Grid.Column textAlign="center">
-            <Button size="huge" className="btn">
-              Order Now!
-            </Button>
-          </Grid.Column>
+              <Button size="huge" className="btn">
+                Order Now!
+              </Button>
+            </Grid.Column>
           </Grid.Column>
         </Grid.Row>
       </Grid>
