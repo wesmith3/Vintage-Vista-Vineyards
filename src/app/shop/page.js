@@ -1,404 +1,627 @@
-"use client";
-import Vineyard from "../../../public/vineyard.jpg";
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import React, { Component, useState, useEffect } from "react";
-import Link from "next/link";
-import { InView } from "react-intersection-observer";
+"use client"
+import React from 'react'
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
   Image,
-  List,
+  Item,
+  Label,
   Menu,
   Segment,
-  Sidebar,
-} from "semantic-ui-react";
+  Step,
+  Table,
+} from 'semantic-ui-react'
 
-const { MediaContextProvider, Media } = createMedia({
-  breakpoints: {
-    mobile: 0,
-    tablet: 768,
-    computer: 1024,
+const style = {
+  h1: {
+    marginTop: '3em',
   },
-});
-
-// * MAIN HEADER * //
-const HomepageHeading = ({ mobile }) => (
-  <Container text>
-    <Header
-      as="h1"
-      content="Vintage Vista Vineyards"
-      inverted
-      style={{
-        fontSize: mobile ? "2em" : "10em",
-        fontWeight: "bolder",
-        marginBottom: 0,
-        marginTop: mobile ? "1.5em" : ".25em",
-        fontFamily: "'Fancy', sans-serif",
-        color: "white",
-        className: "text-stroke",
-        dataText: "Vintage Vista Vineyards", // Add this prop
-      }}
-    />
-  </Container>
-);
-HomepageHeading.propTypes = {
-  mobile: PropTypes.bool,
-};
-
-// * BACKGROUND PHOTOS & MENU BAR * //
-const DesktopContainer = ({ children }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = ["/vineyard.jpg", "/vineyard2.jpg", "/grapes.jpg"];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((currentImageIndex + 1) % images.length);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [currentImageIndex, images.length]);
-
-  const [fixed, setFixed] = useState(false);
-
-  const toggleFixedMenu = (inView) => setFixed(!inView);
-
-  return (
-    <Media greaterThan="mobile">
-      <InView onChange={toggleFixedMenu}>
-        <div className="header-container">
-          <Segment
-            textAlign="center"
-            vertical
-            style={{
-              minHeight: 700,
-              padding: "1em 0em",
-              backgroundImage: `url(${images[currentImageIndex]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-            }}
-          >
-            <Menu
-              fixed={fixed ? "top" : null}
-              inverted={false}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="large"
-              style={{
-                backgroundColor: fixed ? "#D2C5B3" : "rgba(255, 255, 255, .15)",
-                justifyContent: "center",
-                fontFamily: fixed ? "Bask-Cursive" : "Baskerville",
-              }}
-            >
-              <Container style={{ display: "flex", justifyContent: "center" }}>
-                <Menu.Item
-                  as="a"
-                  href="/"
-                  active={window.location.pathname === "/"}
-                >
-                 Home
-                </Menu.Item>
-                <Menu.Item
-                  as="a"
-                  href="/history"
-                  active={window.location.pathname === "/history"}
-                >
-                  Our History
-                </Menu.Item>
-                <Menu.Item
-                  as="a"
-                  href="/wines"
-                  active={window.location.pathname === "/wines"}
-                >
-                  Our Wines
-                </Menu.Item>
-                <Menu.Item
-                  as="a"
-                  href="/shop"
-                  active={window.location.pathname === "/shop"}
-                >
-                  Shop
-                </Menu.Item>
-              </Container>
-            </Menu>
-            <HomepageHeading />
-          </Segment>
-        </div>
-      </InView>
-
-      {children}
-    </Media>
-  );
-};
-DesktopContainer.propTypes = {
-  children: PropTypes.node,
-};
-
-// * MOBILE OVERALL MENU * //
-class MobileContainer extends Component {
-  state = {};
-
-  handleSidebarHide = () => this.setState({ sidebarOpened: false });
-
-  handleToggle = () => this.setState({ sidebarOpened: true });
-
-  render() {
-    const { children } = this.props;
-    const { sidebarOpened } = this.state;
-
-    return (
-      <Media as={Sidebar.Pushable} at="mobile">
-        <Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            animation="overlay"
-            inverted
-            onHide={this.handleSidebarHide}
-            vertical
-            visible={sidebarOpened}
-          >
-            <Menu.Item as="a" active>
-             PageJS
-            </Menu.Item>
-            <Menu.Item as="a">Work</Menu.Item>
-            <Menu.Item as="a">Company</Menu.Item>
-            <Menu.Item as="a">Careers</Menu.Item>
-            <Menu.Item as="a">Log in</Menu.Item>
-            <Menu.Item as="a">Cart</Menu.Item>
-          </Sidebar>
-
-          <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Segment
-              textAlign="center"
-              vertical
-              style={{
-                minHeight: 700,
-                padding: "1em 0em",
-                backgroundImage: `url('/vineyard.jpg')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                position: "relative",
-              }}
-            >
-              <Container>
-                <Menu inverted pointing secondary size="large">
-                  <Menu.Item onClick={this.handleToggle}>
-                    <Icon name="sidebar" />
-                  </Menu.Item>
-                  <Menu.Item position="right">
-                    <Button as="a" inverted>
-                      Log in
-                    </Button>
-                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                      Sign Up
-                    </Button>
-                  </Menu.Item>
-                </Menu>
-              </Container>
-              <HomepageHeading mobile />
-            </Segment>
-
-            {children}
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
-      </Media>
-    );
-  }
+  h2: {
+    margin: '4em 0em 2em',
+  },
+  h3: {
+    marginTop: '2em',
+    padding: '2em 0em',
+  },
+  last: {
+    marginBottom: '300px',
+  },
 }
-MobileContainer.propTypes = {
-  children: PropTypes.node,
-};
-
-const ResponsiveContainer = ({ children }) => (
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
-ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-};
 
 const Page = () => (
-  <ResponsiveContainer>
-    <Segment
-      style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }}
-      vertical
-    >
-      <Grid container stackable verticalAlign="middle">
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-              Welcome to Vintage Vista
-            </Header>
-            <p
-              style={{
-                fontSize: "1.5em",
-                fontFamily: "Baskerville",
-                color: "#5C5C5C",
-              }}
-            >
-              Nestled in the rolling hills of Napa Valley, our family-owned
-              winery has been crafting award-winning wines since{" "}
-              <strong>1972</strong>. Our passion for winemaking is deeply rooted
-              in the rich soil and warm California sun that nurture our precious
-              vines.
-            </p>
-            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-              Our Philosophy
-            </Header>
-            <p
-              style={{
-                fontSize: "1.5em",
-                fontFamily: "Baskerville",
-                color: "#5C5C5C",
-              }}
-            >
-              At Vineyard Valley, we believe great wine starts in the vineyard.
-              Our winemaker, <strong>James Wilkins</strong>, works closely with
-              our viticulture team to cultivate the finest grapes that truly
-              express the unique terroir of our estate vineyards. In the cellar,
-              we take a minimal intervention approach, allowing the natural
-              flavors and character of the fruit to shine through.
-            </p>
-          </Grid.Column>
-          <Grid.Column floated="right" width={6}>
-            <Image className="grapes" alt="grapes" src="/vines.jpg" />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column textAlign="center">
-            <Button size="huge" className="btn">
-              More About Us
-            </Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
+  <div>
+    <Header as='h1' content='Responsive UI Examples' style={style.h1} textAlign='center' />
+    <Header as='h2' content='Basic Responsive' style={style.h2} textAlign='center' />
 
-    <Segment style={{ padding: "0em", backgroundColor: "#F2EDE3" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
-        <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-              Join Our Wine Club!
-            </Header>
-            <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
-              Members receive exclusive access to limited production wines,
-              invitations to events, and generous discounts. Cant make it to the
-              winery? Browse and purchase our exceptional wines online for
-              delivery to your door.
-            </p>
-            <Grid.Column textAlign="center">
-              <Button size="huge" className="btn">
-                Join Today!
-              </Button>
-            </Grid.Column>
+    <Header as='h3' textAlign='center' style={style.h3} content='Container' />
+    <Container>
+      <Segment.Group>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+      </Segment.Group>
+    </Container>
+
+    <Header as='h3' content='Text Container' style={style.h3} textAlign='center' />
+    <Container text>
+      <Segment.Group>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+        <Segment>Content</Segment>
+      </Segment.Group>
+    </Container>
+
+    <Header as='h3' content='Stackable Grid' textAlign='center' style={style.h3} />
+    <Grid columns={2} stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Row columns={3}>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Column width={10}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Doubling Grid' style={style.h3} textAlign='center' />
+    <Grid columns={3} doubling>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Doubling Stackable Grid' style={style.h3} textAlign='center' />
+    <Grid columns={3} doubling stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Nested Stackable Grid' style={style.h3} textAlign='center' />
+    <Grid columns={2}>
+      <Grid.Column>
+        <Grid columns={2} doubling stackable>
+          <Grid.Column>
+            <Segment>Content</Segment>
           </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-              Online Ordering / Shipping
-            </Header>
-            <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
-              Cant make it to the winery? Browse and purchase our exceptional
-              wines online for delivery to your door.
-            </p>
-            <Grid.Column textAlign="center">
-              <Button size="huge" className="btn">
-                Order Now!
-              </Button>
-            </Grid.Column>
+          <Grid.Column>
+            <Segment>Content</Segment>
           </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-
-    <Segment
-      style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }}
-      vertical
-    >
-      <Container text>
-        <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-          Join Us for a Tasting
-        </Header>
-        <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
-          Visit our gorgeous Tuscan-style tasting room and sip your way through
-          our current release wines. Our friendly and knowledgeable staff will
-          guide you through the tasting experience as you savor each pour. Stay
-          for a tour of our vineyards and production facility.
-        </p>
-        <Button as="a" size="large" className="btn">
-          Book a Tasting!
-        </Button>
-
-        <Divider
-          as="h4"
-          className="header"
-          horizontal
-          style={{ margin: "3em 0em", textTransform: "uppercase" }}
-        >
-          <a href="#">Case Studies</a>
-        </Divider>
-
-        <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-          Did We Tell You About Our Bananas?
-        </Header>
-        <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur
-          filler content, but its really true. It took years of gene splicing
-          and combinatory DNA research, but our bananas can really dance.
-        </p>
-        <Button as="a" size="large" className="btn">
-          Im Still Quite Interested
-        </Button>
-      </Container>
-    </Segment>
-
-    <Segment
-      vertical
-      style={{ padding: "5em 0em", backgroundColor: "#D2C5B3" }}
-    >
-      <Container>
-        <Grid divided stackable>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <Header as="h4" content="About" />
-              <List link>
-                <List.Item as="a">Sitemap</List.Item>
-                <List.Item as="a">Contact Us</List.Item>
-                <List.Item as="a">Religious Ceremonies</List.Item>
-                <List.Item as="a">Gazebo Plans</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header as="h4" content="Services" />
-              <List link>
-                <List.Item as="a">Banana Pre-Order</List.Item>
-                <List.Item as="a">DNA FAQ</List.Item>
-                <List.Item as="a">How To Access</List.Item>
-                <List.Item as="a">Favorite X-Men</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as="h4">Footer Header</Header>
-              <p>
-                Extra space for a call to action inside the footer that could
-                help re-engage users.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
         </Grid>
-      </Container>
-    </Segment>
-  </ResponsiveContainer>
-);
+      </Grid.Column>
+      <Grid.Column>
+        <Grid columns={3} doubling stackable>
+          <Grid.Column>
+            <Segment>Content</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>Content</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>Content</Segment>
+          </Grid.Column>
+        </Grid>
+      </Grid.Column>
+    </Grid>
 
-export default Page;
+    <Header as='h3' content='Stackable Grid Container' style={style.h3} textAlign='center' />
+    <Grid container columns={2} stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Doubling Grid Container' style={style.h3} textAlign='center' />
+    <Grid container columns={3} doubling>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header
+      as='h3'
+      content='Doubling Stackable Grid Container'
+      style={style.h3}
+      textAlign='center'
+    />
+    <Grid container columns={3} doubling stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h2' content='Device Adjustment' style={style.h2} textAlign='center' />
+
+    <Header as='h3' content='Device Column Width' style={style.h3} textAlign='center' />
+    <Grid>
+      <Grid.Column computer={3} mobile={6} tablet={9}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column computer={9} mobile={6} tablet={3}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column computer={9} mobile={6} tablet={3}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column computer={3} mobile={6} tablet={9}>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Device Visibility' style={style.h3} textAlign='center' />
+    <Grid columns={4}>
+      <Grid.Column only='widescreen' widescreen={10}>
+        <Segment>Widescreen</Segment>
+      </Grid.Column>
+      <Grid.Column only='widescreen' widescreen={6}>
+        <Segment>Widescreen</Segment>
+      </Grid.Column>
+      <Grid.Column only='large screen' largeScreen={6}>
+        <Segment>Large Screen</Segment>
+      </Grid.Column>
+      <Grid.Column only='large screen' largeScreen={10}>
+        <Segment>Large Screen</Segment>
+      </Grid.Column>
+      <Grid.Column only='mobile tablet' mobile={8} tablet={8}>
+        <Segment>Tablet and Mobile</Segment>
+      </Grid.Column>
+      <Grid.Column only='mobile tablet' mobile={8} tablet={8}>
+        <Segment>Tablet and Mobile</Segment>
+      </Grid.Column>
+      <Grid.Column only='mobile' mobile={16}>
+        <Segment>Mobile</Segment>
+      </Grid.Column>
+      <Grid.Row only='computer' columns={2}>
+        <Grid.Column>
+          <Segment>Computer and Up</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Computer and Up</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Column only='tablet'>
+        <Segment>Tablet Only Content</Segment>
+      </Grid.Column>
+      <Grid.Column only='tablet'>
+        <Segment>Tablet Only Content</Segment>
+      </Grid.Column>
+      <Grid.Column only='tablet'>
+        <Segment>Tablet Only Content</Segment>
+      </Grid.Column>
+      <Grid.Column only='tablet'>
+        <Segment>Tablet Only Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h2' content='Responsive Grid with Variations' style={style.h2} textAlign='center' />
+
+    <Header as='h3' content='Stackable Divided Grid' style={style.h3} textAlign='center' />
+    <Grid columns={2} container divided stackable>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+
+    <Header
+      as='h3'
+      content='Stackable Vertically Divided Grid'
+      style={style.h3}
+      textAlign='center'
+    />
+    <Grid columns={2} container divided='vertically' stackable>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+
+    <Header as='h3' content='Celled Stackable Grid' style={style.h3} textAlign='center' />
+    <Grid celled container stackable>
+      <Grid.Row columns={2}>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row columns={3}>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row columns={2}>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+        <Grid.Column>
+          <Segment>Content</Segment>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+
+    <Header
+      as='h3'
+      content='Consecutive Doubling Stackable Grid'
+      style={style.h3}
+      textAlign='center'
+    />
+    <Grid columns={3} container doubling stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+    <Grid columns={3} container doubling stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Grid Container' style={style.h3} textAlign='center' />
+    <Grid columns={3} container>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h1' content='Responsive Elements' style={style.h1} textAlign='center' />
+
+    <Header as='h3' content='Responsive Vertical Divider' style={style.h3} textAlign='center' />
+    <Grid container columns={2} divided relaxed stackable>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+    </Grid>
+
+    <Header as='h3' content='Responsive Table' style={style.h3} textAlign='center' />
+    <Container>
+      <Table celled>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Employee</Table.HeaderCell>
+            <Table.HeaderCell>Correct Guesses</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>
+              <Header as='h4' image>
+                <Image rounded size='mini' src='/images/wireframe/square-image.png' />
+                <Header.Content>
+                  Lena
+                  <Header.Subheader>Human Resources</Header.Subheader>
+                </Header.Content>
+              </Header>
+            </Table.Cell>
+            <Table.Cell>22</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Header as='h4' image>
+                <Image rounded size='mini' src='/images/wireframe/square-image.png' />
+                <Header.Content>
+                  Matthew
+                  <Header.Subheader>Fabric Design</Header.Subheader>
+                </Header.Content>
+              </Header>
+            </Table.Cell>
+            <Table.Cell>15</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Header as='h4' image>
+                <Image rounded size='mini' src='/images/wireframe/square-image.png' />
+                <Header.Content>
+                  Lindsay
+                  <Header.Subheader>Entertainment</Header.Subheader>
+                </Header.Content>
+              </Header>
+            </Table.Cell>
+            <Table.Cell>12</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Header as='h4' image>
+                <Image rounded size='mini' src='/images/wireframe/square-image.png' />
+                <Header.Content>
+                  Mark
+                  <Header.Subheader>Executive</Header.Subheader>
+                </Header.Content>
+              </Header>
+            </Table.Cell>
+            <Table.Cell>11</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </Container>
+
+    <Header as='h3' content='Responsive Menu' style={style.h3} textAlign='center' />
+    <Container>
+      <Menu stackable>
+        <Menu.Item>
+          <img src='/logo.png' />
+        </Menu.Item>
+        <Menu.Item>Features</Menu.Item>
+        <Menu.Item>Testimonials</Menu.Item>
+        <Menu.Item>Sign-in</Menu.Item>
+      </Menu>
+    </Container>
+
+    <Header as='h3' content='Responsive Item' style={style.h3} textAlign='center' />
+    <Container>
+      <Item.Group divided>
+        <Item>
+          <Item.Image src='/images/wireframe/image.png' />
+          <Item.Content>
+            <Item.Header as='a'>Content Header</Item.Header>
+            <Item.Meta>
+              <span>Date</span>
+              <span>Category</span>
+            </Item.Meta>
+            <Item.Description>
+              A description which may flow for several lines and give context to the content.
+            </Item.Description>
+            <Item.Extra>
+              <Image avatar circular src='/images/wireframe/square-image.png' />
+              Username
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+
+        <Item>
+          <Item.Image src='/images/wireframe/image.png' />
+          <Item.Content>
+            <Item.Header as='a'>Content Header</Item.Header>
+            <Item.Meta>
+              <span>Date</span>
+              <span>Category</span>
+            </Item.Meta>
+            <Item.Description>
+              A description which may flow for several lines and give context to the content.
+            </Item.Description>
+            <Item.Extra>
+              <Button floated='right' primary>
+                Primary
+                <Icon name='chevron right' />
+              </Button>
+              <Label>Limited</Label>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+        <Item>
+          <Item.Image src='/images/wireframe/image.png' />
+          <Item.Content>
+            <Item.Header as='a'>Content Header</Item.Header>
+            <Item.Meta>
+              <span>Date</span>
+              <span>Category</span>
+            </Item.Meta>
+            <Item.Description>
+              A description which may flow for several lines and give context to the content.
+            </Item.Description>
+            <Item.Extra>
+              <Button primary floated='right'>
+                Primary
+                <Icon name='chevron right' />
+              </Button>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+      </Item.Group>
+    </Container>
+
+    <Header as='h3' content='Responsive Steps' style={style.h3} textAlign='center' />
+
+    <Container style={style.last}>
+      <Step.Group fluid>
+        <Step icon='plane' title='Shipping' description='Choose your shipping options' />
+        <Step active icon='dollar' title='Billing' description='Enter billing information' />
+        <Step
+          disabled
+          icon='info circle'
+          title='Confirm Order'
+          description='Verify order details'
+        />
+      </Step.Group>
+    </Container>
+  </div>
+)
+
+export default Page
