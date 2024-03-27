@@ -349,7 +349,7 @@ const Home = () => (
         </Divider>
 
         <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-          Did We Tell You About Our Bananas?
+          Have Your Next Event With Us!
         </Header>
         <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
           Yes I know you probably disregarded the earlier boasts as non-sequitur
