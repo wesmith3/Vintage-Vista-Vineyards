@@ -381,10 +381,10 @@ const Home = () => (
             <Grid.Column width={3}>
               <Header as="h4" content="Services" />
               <List link>
-                <List.Item as="a">Banana Pre-Order</List.Item>
-                <List.Item as="a">DNA FAQ</List.Item>
-                <List.Item as="a">How To Access</List.Item>
-                <List.Item as="a">Favorite X-Men</List.Item>
+                <List.Item as="a">Online Shopping</List.Item>
+                <List.Item as="a">Wine Club</List.Item>
+                <List.Item as="a">Event Calender</List.Item>
+                <List.Item as="a">Cafe Menu</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
