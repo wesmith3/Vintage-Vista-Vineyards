@@ -40,7 +40,7 @@ const Page = () => (
     <Grid columns={4} container>
       <Grid.Column>
           <Card>
-            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src="/pics/Merlot.jpg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Merlot</Card.Header>
               <Card.Meta>
@@ -51,7 +51,7 @@ const Page = () => (
       </Grid.Column>
       <Grid.Column>
           <Card>
-            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src="/pics/Syrah.jpg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Syrah</Card.Header>
               <Card.Meta>
