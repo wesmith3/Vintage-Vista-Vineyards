@@ -62,7 +62,7 @@ const Page = () => (
       </Grid.Column>
       <Grid.Column>
           <Card>
-            <Image alt="port" src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image alt="port" src="/pics/Port.jpeg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Port</Card.Header>
               <Card.Meta>
@@ -73,7 +73,7 @@ const Page = () => (
       </Grid.Column>
       <Grid.Column>
           <Card>
-            <Image alt="cab-sauv" src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image alt="cab-sauv" src="/pics/CabSauv.jpeg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Cabernet Sauvignon</Card.Header>
               <Card.Meta>
@@ -84,7 +84,7 @@ const Page = () => (
       </Grid.Column>
       <Grid.Column>
           <Card>
-            <Image alt="pinot" src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image alt="pinot" src="/pics/Pinot.jpeg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Pinot Noir</Card.Header>
               <Card.Meta>
@@ -95,7 +95,7 @@ const Page = () => (
       </Grid.Column>
       <Grid.Column>
           <Card>
-            <Image alt="chardonnay" src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image alt="chardonnay" src="pics/Chardonnay.jpeg" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Chardonnay</Card.Header>
               <Card.Meta>
