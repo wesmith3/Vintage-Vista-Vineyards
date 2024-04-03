@@ -35,14 +35,14 @@ const style = {
 const Page = () => (
   <div>
     <Header as="h3" content="Wines" style={style.h3} textAlign="center" />
-    <Grid columns={3} container>
+    <Grid columns={4} container>
       <Grid.Column>
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
               <Card.Header>Merlot</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$36.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
@@ -62,7 +62,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header>Syrah</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$36.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
@@ -82,7 +82,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header>Port</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$46.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
@@ -102,7 +102,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header>Cabernet Sauvignon</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$46.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
@@ -120,9 +120,9 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Rose</Card.Header>
+              <Card.Header>Pinot Noir</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$36.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
@@ -142,7 +142,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header>Chardonnay</Card.Header>
               <Card.Meta>
-                <span className="date">Joined in 2015</span>
+                <span className="date">$28.00</span>
               </Card.Meta>
               <Card.Description>
                 Matthew is a musician living in Nashville.
