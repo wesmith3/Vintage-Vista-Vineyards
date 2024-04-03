@@ -56,21 +56,7 @@ const Page = () => (
             </Card.Content>
           </Card>
       </Grid.Column>
-      <Grid.Column>
-        <Segment>Syrah</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>Port</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>Cabernet Sauvignon</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>Rose</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>Chardonnay</Segment>
-      </Grid.Column>
+      
     </Grid>
   </div>
 );
