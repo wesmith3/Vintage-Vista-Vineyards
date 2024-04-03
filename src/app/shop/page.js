@@ -46,15 +46,6 @@ const Page = () => (
               <Card.Meta>
                 <span className="date">$36.00</span>
               </Card.Meta>
-              <Card.Description>
-              Discover the elegance of Merlot with our selection showcasing its rich fruit flavors and velvety texture.
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Button>
-                <Icon name="shopping basket"/>
-                Add to Basket
-              </Button>
             </Card.Content>
           </Card>
       </Grid.Column>
@@ -66,15 +57,6 @@ const Page = () => (
               <Card.Meta>
                 <span className="date">$36.00</span>
               </Card.Meta>
-              <Card.Description>
-              Experience the bold allure of Syrah in our selection, boasting deep layers of dark fruit, peppery spice, and a lingering, luxurious finish.
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-            <Button>
-                <Icon name="shopping basket"/>
-                Add to Basket
-              </Button>
             </Card.Content>
           </Card>
       </Grid.Column>
