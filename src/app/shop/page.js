@@ -40,7 +40,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Merlot</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -60,7 +60,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Syrah</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -80,7 +80,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Port</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -100,7 +100,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Cabernet Sauvignon</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -120,7 +120,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Rose</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -140,7 +140,7 @@ const Page = () => (
           <Card>
             <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Matthew</Card.Header>
+              <Card.Header>Chardonnay</Card.Header>
               <Card.Meta>
                 <span className="date">Joined in 2015</span>
               </Card.Meta>
@@ -156,7 +156,6 @@ const Page = () => (
             </Card.Content>
           </Card>
       </Grid.Column>
-      
     </Grid>
   </div>
 );
