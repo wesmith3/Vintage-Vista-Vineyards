@@ -2,6 +2,7 @@
 import React from "react";
 import {
   Card,
+  Button,
   Container,
   Grid,
   Header,
@@ -26,6 +27,7 @@ const style = {
   h3: {
     marginTop: "2em",
     padding: "2em 0em",
+    fontFamily: "Fancy",
   },
   last: {
     marginBottom: "300px",
@@ -34,7 +36,7 @@ const style = {
 
 const Page = () => (
   <div>
-    <Header as="h3" content="Wines" style={style.h3} textAlign="center" />
+    <Header as="h1" content="Wines" style={style.h3} textAlign="center" />
     <Grid columns={4} container>
       <Grid.Column>
           <Card>
@@ -45,14 +47,14 @@ const Page = () => (
                 <span className="date">$36.00</span>
               </Card.Meta>
               <Card.Description>
-                Matthew is a musician living in Nashville.
+              Discover the elegance of Merlot with our selection showcasing its rich fruit flavors and velvety texture.
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
-                <Icon name="user" />
-                22 Friends
-              </a>
+              <Button>
+                <Icon name="shopping basket"/>
+                Add to Basket
+              </Button>
             </Card.Content>
           </Card>
       </Grid.Column>
@@ -65,14 +67,14 @@ const Page = () => (
                 <span className="date">$36.00</span>
               </Card.Meta>
               <Card.Description>
-                Matthew is a musician living in Nashville.
+              Experience the bold allure of Syrah in our selection, boasting deep layers of dark fruit, peppery spice, and a lingering, luxurious finish.
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
-                <Icon name="user" />
-                22 Friends
-              </a>
+            <Button>
+                <Icon name="shopping basket"/>
+                Add to Basket
+              </Button>
             </Card.Content>
           </Card>
       </Grid.Column>
