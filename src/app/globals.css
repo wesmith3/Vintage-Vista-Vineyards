@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'VV';
-    src: url('/public/fonts/VibrantHandmark-Yzpza.otf') format('opentype');
+    src: url('/fonts/VibrantHandmark-Yzpza.otf') format('opentype');
   }
 @font-face {
     font-family: 'Fancy';
-    src: url('/public//fonts/FancyGlowPersonalUse-2OR0o.otf') format('opentype');
+    src: url('/fonts/FancyGlowPersonalUse-2OR0o.otf') format('opentype');
   }
 @font-face {
     font-family: 'Baskerville';
-    src: url('/public/fonts/LibreBaskerville-DpdE.ttf') format('truetype');
+    src: url('/fonts/LibreBaskerville-DpdE.ttf') format('truetype');
   }
 @font-face {
     font-family: 'Bask-Cursive';
-    src: url('/public//fonts/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
+    src: url('//fonts/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
   }
 
   .text-stroke {
