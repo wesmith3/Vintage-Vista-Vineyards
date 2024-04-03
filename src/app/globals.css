@@ -12,7 +12,7 @@
   }
 @font-face {
     font-family: 'Bask-Cursive';
-    src: url('//fonts/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
+    src: url('/fonts/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
   }
 
   .text-stroke {

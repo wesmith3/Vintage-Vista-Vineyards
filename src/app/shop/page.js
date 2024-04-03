@@ -1,19 +1,11 @@
 "use client";
 import React from "react";
+import "./page.css"
 import {
   Card,
-  Button,
-  Container,
   Grid,
   Header,
-  Icon,
   Image,
-  Item,
-  Label,
-  Menu,
-  Segment,
-  Step,
-  Table,
 } from "semantic-ui-react";
 
 const style = {
@@ -35,14 +27,14 @@ const style = {
 };
 
 const Page = () => (
-  <div>
+  <div className="shop">
     <Header as="h1" content="Wines" style={style.h3} textAlign="center" />
     <Grid columns={4} container>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image  alt="merlot" src="/pics/Merlot.jpeg" />
             <Card.Content>
-              <Card.Header>Merlot</Card.Header>
+              <Card.Header className="product">Merlot</Card.Header>
               <Card.Meta>
                 <span className="date">$36.00</span>
               </Card.Meta>
@@ -50,10 +42,10 @@ const Page = () => (
           </Card>
       </Grid.Column>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image alt="syrah" src="/pics/Syrah.jpeg"/>
             <Card.Content>
-              <Card.Header>Syrah</Card.Header>
+              <Card.Header className="product">Syrah</Card.Header>
               <Card.Meta>
                 <span className="date">$36.00</span>
               </Card.Meta>
@@ -61,10 +53,10 @@ const Page = () => (
           </Card>
       </Grid.Column>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image alt="port" src="/pics/Port.jpeg" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Port</Card.Header>
+              <Card.Header className="product">Port</Card.Header>
               <Card.Meta>
                 <span className="date">$46.00</span>
               </Card.Meta>
@@ -72,10 +64,10 @@ const Page = () => (
           </Card>
       </Grid.Column>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image alt="cab-sauv" src="/pics/CabSauv.jpeg" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Cabernet Sauvignon</Card.Header>
+              <Card.Header className="product">Cabernet Sauvignon</Card.Header>
               <Card.Meta>
                 <span className="date">$46.00</span>
               </Card.Meta>
@@ -83,10 +75,10 @@ const Page = () => (
           </Card>
       </Grid.Column>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image alt="pinot" src="/pics/Pinot.jpeg" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Pinot Noir</Card.Header>
+              <Card.Header className="product">Pinot Noir</Card.Header>
               <Card.Meta>
                 <span className="date">$36.00</span>
               </Card.Meta>
@@ -94,10 +86,10 @@ const Page = () => (
           </Card>
       </Grid.Column>
       <Grid.Column>
-          <Card>
+          <Card className="card">
             <Image alt="chardonnay" src="pics/Chardonnay.jpeg" wrapped ui={false} />
             <Card.Content>
-              <Card.Header>Chardonnay</Card.Header>
+              <Card.Header className="product">Chardonnay</Card.Header>
               <Card.Meta>
                 <span className="date">$28.00</span>
               </Card.Meta>
