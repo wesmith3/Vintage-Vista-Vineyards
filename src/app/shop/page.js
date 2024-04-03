@@ -1,6 +1,7 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 import {
+  Card,
   Button,
   Container,
   Grid,
@@ -13,50 +14,134 @@ import {
   Segment,
   Step,
   Table,
-} from 'semantic-ui-react'
+} from "semantic-ui-react";
 
 const style = {
   h1: {
-    marginTop: '3em',
+    marginTop: "3em",
   },
   h2: {
-    margin: '4em 0em 2em',
+    margin: "4em 0em 2em",
     fontFamily: "Fancy",
   },
   h3: {
-    marginTop: '2em',
-    padding: '2em 0em',
+    marginTop: "2em",
+    padding: "2em 0em",
+    fontFamily: "Fancy",
   },
   last: {
-    marginBottom: '300px',
+    marginBottom: "300px",
   },
-}
+};
 
 const Page = () => (
   <div>
-    <Header as='h3' content='Wines' style={style.h3} textAlign='center' />
-    <Grid columns={3} container>
+    <Header as="h1" content="Wines" style={style.h3} textAlign="center" />
+    <Grid columns={4} container>
       <Grid.Column>
-        <Segment>Merlot</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Merlot</Card.Header>
+              <Card.Meta>
+                <span className="date">$36.00</span>
+              </Card.Meta>
+            </Card.Content>
+          </Card>
       </Grid.Column>
       <Grid.Column>
-        <Segment>Syrah</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Syrah</Card.Header>
+              <Card.Meta>
+                <span className="date">$36.00</span>
+              </Card.Meta>
+            </Card.Content>
+          </Card>
       </Grid.Column>
       <Grid.Column>
-        <Segment>Port</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Port</Card.Header>
+              <Card.Meta>
+                <span className="date">$46.00</span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name="user" />
+                22 Friends
+              </a>
+            </Card.Content>
+          </Card>
       </Grid.Column>
       <Grid.Column>
-        <Segment>Cabernet Sauvignon</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Cabernet Sauvignon</Card.Header>
+              <Card.Meta>
+                <span className="date">$46.00</span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name="user" />
+                22 Friends
+              </a>
+            </Card.Content>
+          </Card>
       </Grid.Column>
       <Grid.Column>
-        <Segment>Rose</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Pinot Noir</Card.Header>
+              <Card.Meta>
+                <span className="date">$36.00</span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name="user" />
+                22 Friends
+              </a>
+            </Card.Content>
+          </Card>
       </Grid.Column>
       <Grid.Column>
-        <Segment>Chardonnay</Segment>
+          <Card>
+            <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Chardonnay</Card.Header>
+              <Card.Meta>
+                <span className="date">$28.00</span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name="user" />
+                22 Friends
+              </a>
+            </Card.Content>
+          </Card>
       </Grid.Column>
     </Grid>
-
   </div>
-)
+);
 
-export default Page
+export default Page;
