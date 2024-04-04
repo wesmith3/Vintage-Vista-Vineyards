@@ -1,5 +1,4 @@
 "use client";
-import Vineyard from "../../public/vineyard.jpg";
 import { createMedia } from "@artsy/fresnel";
 import PropTypes from "prop-types";
 import React, { Component, useState, useEffect } from "react";
@@ -54,7 +53,7 @@ HomepageHeading.propTypes = {
 // * BACKGROUND PHOTOS & MENU BAR * //
 const DesktopContainer = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = ["/vineyard.jpg", "/vineyard2.jpg", "/grapes.jpg"];
+  const images = ["/pics/vineyard.jpg", "/pics/vineyard2.jpg", "/pics/grapes.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -271,7 +270,7 @@ const Home = () => (
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
-            <Image className="grapes" alt="grapes" src="/vines.jpg" />
+            <Image className="grapes" alt="grapes" src="/pics/vines.jpg" />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

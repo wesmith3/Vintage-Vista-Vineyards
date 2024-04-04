@@ -1,0 +1,22 @@
+.shop {
+    background-color: #F2EDE3
+}
+
+.card {
+    overflow: hidden !important;
+    background-color: #D2C5B3 !important;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 4px 8px 2.5px 1.5px grey !important;
+}
+
+.product {
+    font-family: "Baskerville" !important;
+}
+.date {
+    font-family: "Baskerville" !important;
+    color: black !important
+
+}
