@@ -36,7 +36,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Merlot</Card.Header>
               <Card.Meta>
-                <span className="date">$36.00</span>
+                <span className="date">$36</span>
               </Card.Meta>
             </Card.Content>
           </Card>
@@ -47,7 +47,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Syrah</Card.Header>
               <Card.Meta>
-                <span className="date">$36.00</span>
+                <span className="date">$36</span>
               </Card.Meta>
             </Card.Content>
           </Card>
@@ -58,7 +58,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Port</Card.Header>
               <Card.Meta>
-                <span className="date">$46.00</span>
+                <span className="date">$46</span>
               </Card.Meta>
             </Card.Content>
           </Card>
@@ -69,7 +69,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Cabernet Sauvignon</Card.Header>
               <Card.Meta>
-                <span className="date">$46.00</span>
+                <span className="date">$46</span>
               </Card.Meta>
             </Card.Content>
           </Card>
@@ -80,7 +80,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Pinot Noir</Card.Header>
               <Card.Meta>
-                <span className="date">$36.00</span>
+                <span className="date">$36</span>
               </Card.Meta>
             </Card.Content>
           </Card>
@@ -91,7 +91,7 @@ const Page = () => (
             <Card.Content>
               <Card.Header className="product">Chardonnay</Card.Header>
               <Card.Meta>
-                <span className="date">$28.00</span>
+                <span className="date">$28</span>
               </Card.Meta>
             </Card.Content>
           </Card>
