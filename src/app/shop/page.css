@@ -7,7 +7,7 @@
     background-color: #D2C5B3 !important;
 }
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.005);
     transition: transform 0.3s ease-in-out;
     box-shadow: 4px 8px 2.5px 1.5px grey !important;
 }

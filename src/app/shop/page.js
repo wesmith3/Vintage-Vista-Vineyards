@@ -14,12 +14,12 @@ const style = {
   },
   h2: {
     margin: "4em 0em 2em",
-    fontFamily: "Fancy",
+    fontFamily: "Baskerville",
   },
   h3: {
     marginTop: "2em",
     padding: "2em 0em",
-    fontFamily: "Fancy",
+    fontFamily: "Baskerville"
   },
   last: {
     marginBottom: "300px",
@@ -97,6 +97,9 @@ const Page = () => (
           </Card>
       </Grid.Column>
     </Grid>
+    <br />
+    <br />
+    <br />
   </div>
 );
 
