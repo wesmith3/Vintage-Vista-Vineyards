@@ -84,7 +84,6 @@ const DesktopContainer = ({ children }) => {
           >
             <Menu
               fixed={fixed ? "top" : null}
-              inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
               size="large"
@@ -100,6 +99,7 @@ const DesktopContainer = ({ children }) => {
                   { path: "/history", label: "Our History" },
                   { path: "/wines", label: "Our Wines" },
                   { path: "/shop", label: "Shop" },
+                  { path: "/cart", label: "Cart" },
                 ].map((item) => (
                   <Link key={item.path} href={item.path} passHref>
                     <Menu.Item as="a" active={typeof window !== 'undefined' && window.location.pathname === item.path}>
