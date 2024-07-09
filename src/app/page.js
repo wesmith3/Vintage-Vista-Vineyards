@@ -17,6 +17,7 @@ import {
   Segment,
   Sidebar,
 } from "semantic-ui-react";
+import DesktopHeader from "./DesktopHeader";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -115,17 +116,6 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const ResponsiveContainer = ({ children }) => (
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
-
-ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-};
-
 const Home = () => {
   const handleShopClick = () => {
     if (typeof window !== 'undefined') {
@@ -134,7 +124,8 @@ const Home = () => {
   };
 
   return (
-    <ResponsiveContainer>
+    <>
+    <DesktopHeader />
       <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
@@ -292,7 +283,7 @@ const Home = () => {
           </Grid>
         </Container>
       </Segment>
-    </ResponsiveContainer>
+      </>
   );
 };
 
