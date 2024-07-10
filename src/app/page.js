@@ -50,11 +50,6 @@ HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 };
 
-
-DesktopContainer.propTypes = {
-  children: PropTypes.node,
-};
-
 const MobileContainer = ({ children }) => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
 
