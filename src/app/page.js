@@ -18,6 +18,7 @@ import {
   Sidebar,
 } from "semantic-ui-react";
 import DesktopHeader from "./DesktopHeader";
+import HomepageContent from "./HomepageContent";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -126,6 +127,7 @@ const Home = () => {
   return (
     <>
     <DesktopHeader />
+    <HomepageContent />
       <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
