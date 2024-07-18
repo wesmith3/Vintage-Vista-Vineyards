@@ -40,6 +40,9 @@ const DesktopHeader = () => {  // removed unused currentImage prop
           <Menu.Item as="a" href="/shop" active={window.location.pathname === "/shop"}>
             Shop
           </Menu.Item>
+          <Menu.Item as="a" href="/shop" active={window.location.pathname === "/cart"}>
+            Cart
+          </Menu.Item>
         </Container>
       </Menu>
     </>
