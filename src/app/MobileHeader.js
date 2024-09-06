@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Segment, Sidebar, Menu, Container, Icon, Button } from "semantic-ui-react";
 import HomepageHeading from './HomepageHeading';

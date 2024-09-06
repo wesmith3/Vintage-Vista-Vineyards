@@ -1,8 +1,9 @@
+'use client';
 import React, { useState } from 'react';
 import { InView } from "react-intersection-observer";
 import { Segment, Menu, Container } from "semantic-ui-react";
 import HomepageHeading from './HomepageHeading';
-import { COLORS } from '../utils/constants';
+import { COLORS } from './constants';
 
 const DesktopHeader = ({ currentImage }) => {
   const [fixed, setFixed] = useState(false);

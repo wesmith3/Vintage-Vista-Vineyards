@@ -1,5 +1,6 @@
+'use client';
 import React, { useState, useEffect } from 'react';
-import { Media } from '../utils/media';
+import { Media } from './media';
 import DesktopHeader from './DesktopHeader';
 import MobileHeader from './MobileHeader';
 

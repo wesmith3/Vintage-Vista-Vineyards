@@ -1,3 +1,4 @@
+'use client'
 import { createMedia } from "@artsy/fresnel";
 
 export const { MediaContextProvider, Media } = createMedia({

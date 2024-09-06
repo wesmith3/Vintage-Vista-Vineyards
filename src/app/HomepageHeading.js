@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Header } from "semantic-ui-react";
-import { COLORS, FONTS } from '../utils/constants';
+import { COLORS, FONTS } from './constants';
 
 const HomepageHeading = ({ mobile }) => (
   <Container text>

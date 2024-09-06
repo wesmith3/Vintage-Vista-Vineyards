@@ -1,6 +1,6 @@
 import React from 'react';
 import { Segment, Container, Grid, Header, List } from "semantic-ui-react";
-import { COLORS } from '../utils/constants';
+import { COLORS } from './constants';
 
 const Footer = () => (
   <Segment vertical style={{ padding: "5em 0em", backgroundColor: COLORS.LIGHT_BROWN }}>
