@@ -1,4 +1,8 @@
 import { Inter } from "next/font/google";
+import React from 'react';
+import { MediaContextProvider } from '../utils/media';
+import Header from './Header';
+import Footer from './Footer';
 import "./globals.css";
 import 'semantic-ui-css/semantic.min.css';
 
@@ -12,8 +16,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <MediaContextProvider>
+    <Header />
+    {children}
+    <Footer />
+  </MediaContextProvider>
   );
 }
