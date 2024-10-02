@@ -1,13 +1,20 @@
 .shop {
     background-color: #F2EDE3
 }
+.sec-title {
+    width: 80% !important;
+    margin: auto !important;
+    margin-top: 1em !important;
+    padding: 2em 0em !important;
+    font-family: "Baskerville" !important;
+}
 
 .card {
     overflow: hidden !important;
     background-color: #D2C5B3 !important;
 }
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.005);
     transition: transform 0.3s ease-in-out;
     box-shadow: 4px 8px 2.5px 1.5px grey !important;
 }

@@ -15,6 +15,9 @@
     src: url('/fonts/LibreBaskervilleItalic-q8K6.ttf') format('truetype');
   }
 
+  .body {
+    overflow: hidden;
+  }
   .text-stroke {
     color: transparent;
     -webkit-text-stroke: 1px #fff; /* Width and color of the stroke */
