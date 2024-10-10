@@ -1,10 +1,10 @@
 import React from 'react'
-import { ResponsiveContainer } from '../page'
+import DesktopHeader from '../DesktopHeader'
 
 function page() {
   return (
     <div>
-      <ResponsiveContainer />
+      <DesktopHeader />
       Our Wine
     </div>
   )

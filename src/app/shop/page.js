@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import "./page.css"
-import { ResponsiveContainer } from "../page";
 import {
   Card,
   Grid,
   Header,
   Image,
 } from "semantic-ui-react";
+import DesktopHeader from "../DesktopHeader";
 
 const style = {
   h1: {
@@ -29,7 +29,7 @@ const style = {
 
 const Page = () => (
   <div className="shop">
-    <ResponsiveContainer />
+    <DesktopHeader />
     <Header className="sec-title" content="Red Wines" />
     <Grid columns={4} container>
       <Grid.Column>
