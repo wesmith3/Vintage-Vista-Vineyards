@@ -344,16 +344,13 @@ const Home = () => (
           horizontal
           style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
-          <a href="#">Case Studies</a>
         </Divider>
 
         <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
           Have Your Next Event With Us!
         </Header>
         <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur
-          filler content, but its really true. It took years of gene splicing
-          and combinatory DNA research, but our bananas can really dance.
+        Transform your special occasion into an unforgettable experience at Vintage Vista Vineyards. Our stunning hillside estate offers breathtaking views of rolling vineyards and the perfect blend of rustic charm and elegant sophistication. Whether you&apos;re planning an intimate wedding, corporate retreat, or milestone celebration, our dedicated events team will ensure every detail exceeds your expectations. Treat your guests to award-winning wines, exceptional farm-to-table cuisine, and the timeless beauty of wine country. With both indoor and outdoor venues available year-round, your perfect event awaits. Contact us today to begin crafting your memorable celebration.
         </p>
         <Button as="a" size="large" className="btn">
           Im Still Quite Interested
