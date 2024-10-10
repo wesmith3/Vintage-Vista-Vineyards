@@ -1,10 +1,11 @@
 import React from 'react'
-import { ResponsiveContainer } from '../page'
+import "./page.css"
+import DesktopHeader from '../DesktopHeader'
 
 function page() {
   return (
-    <div>
-      <ResponsiveContainer />
+    <div className='history'>
+      <DesktopHeader />
       Our History
     </div>
   )
