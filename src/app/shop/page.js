@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import "./page.css"
+import { ResponsiveContainer } from "../page";
 import {
   Card,
   Grid,
@@ -28,6 +29,7 @@ const style = {
 
 const Page = () => (
   <div className="shop">
+    <ResponsiveContainer />
     <Header className="sec-title" content="Red Wines" />
     <Grid columns={4} container>
       <Grid.Column>
