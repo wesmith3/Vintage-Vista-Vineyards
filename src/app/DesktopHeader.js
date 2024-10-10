@@ -11,9 +11,21 @@ const DesktopHeader = ({ currentImage }) => {
   return (
     <InView onChange={(inView) => setFixed(!inView)}>
       <div className="header-container">
+        <Segment
+          textAlign="center"
+          vertical
+          style={{
+            minHeight: 700,
+            padding: "1em 0em",
+            backgroundImage: `url(${currentImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            position: "relative",
+          }}
+        >
           <Menu
             fixed={fixed ? "top" : null}
-            inverted={!fixed}
             pointing={!fixed}
             secondary={!fixed}
             size="large"
@@ -38,6 +50,7 @@ const DesktopHeader = ({ currentImage }) => {
               </Menu.Item>
             </Container>
           </Menu>
+        </Segment>
       </div>
     </InView>
   );
