@@ -268,7 +268,7 @@ const Home = () => {
                 Members receive exclusive access to limited production wines,
                 invitations to events, and generous discounts.
               </p>
-              <Link href="/wine-club" passHref>
+              <Link href="/shop" passHref>
                 <Button size="huge" className="btn">
                   Join Today!
                 </Button>
