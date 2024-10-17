@@ -17,6 +17,8 @@ import {
   Segment,
   Sidebar,
 } from "semantic-ui-react";
+import DesktopHeader from "./DesktopHeader";
+import HomepageContent from "./HomepageContent";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -48,78 +50,6 @@ const HomepageHeading = ({ mobile }) => (
 
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
-};
-
-const DesktopContainer = ({ children }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [fixed, setFixed] = useState(false);
-  
-  const images = ["/pics/vineyard.jpg", "/pics/vineyard2.jpg", "/pics/grapes.jpg"];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  return (
-    <Media greaterThan="mobile">
-      <InView onChange={(inView) => setFixed(!inView)}>
-        <div className="header-container">
-          <Segment
-            textAlign="center"
-            vertical
-            style={{
-              minHeight: 700,
-              padding: "1em 0em",
-              backgroundImage: `url(${images[currentImageIndex]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-              transition: "background-image 0.5s ease-in-out",
-            }}
-          >
-            <Menu
-              fixed={fixed ? "top" : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="large"
-              style={{
-                backgroundColor: fixed ? "#D2C5B3" : "rgba(255, 255, 255, .15)",
-                justifyContent: "center",
-                fontFamily: fixed ? "Bask-Cursive" : "Baskerville",
-              }}
-            >
-              <Container style={{ display: "flex", justifyContent: "center" }}>
-                {[
-                  { path: "/", label: "Home" },
-                  { path: "/history", label: "Our History" },
-                  { path: "/wines", label: "Our Wines" },
-                  { path: "/shop", label: "Shop" },
-                ].map((item) => (
-                  <Link key={item.path} href={item.path} passHref>
-                    <Menu.Item as="a" active={typeof window !== 'undefined' && window.location.pathname === item.path}>
-                      {item.label}
-                    </Menu.Item>
-                  </Link>
-                ))}
-              </Container>
-            </Menu>
-            <HomepageHeading />
-          </Segment>
-        </div>
-      </InView>
-      {children}
-    </Media>
-  );
-};
-
-DesktopContainer.propTypes = {
-  children: PropTypes.node,
 };
 
 const MobileContainer = ({ children }) => {
@@ -187,17 +117,6 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const ResponsiveContainer = ({ children }) => (
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
-
-ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-};
-
 const Home = () => {
   const handleShopClick = () => {
     if (typeof window !== 'undefined') {
@@ -206,7 +125,9 @@ const Home = () => {
   };
 
   return (
-    <ResponsiveContainer>
+    <>
+    <DesktopHeader />
+    <HomepageContent />
       <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
@@ -364,7 +285,7 @@ const Home = () => {
           </Grid>
         </Container>
       </Segment>
-    </ResponsiveContainer>
+      </>
   );
 };
 
