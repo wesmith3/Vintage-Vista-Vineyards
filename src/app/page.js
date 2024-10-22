@@ -127,8 +127,6 @@ const Home = () => {
   return (
     <>
     <DesktopHeader />
-    <HomepageHeading />
-    <HomepageContent />
       <Segment style={{ padding: "8em 0em", backgroundColor: "#F2EDE3" }} vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
