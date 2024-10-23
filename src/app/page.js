@@ -132,7 +132,7 @@ const Home = () => {
           <Grid.Row>
             <Grid.Column width={8}>
               <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-                Welcome to Vintage Vista
+                Welcome to Vintage Vista Vineyards
               </Header>
               <p style={{
                 fontSize: "1.5em",
