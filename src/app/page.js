@@ -154,7 +154,7 @@ const Home = () => {
                 color: "#5C5C5C",
               }}>
                 At Vineyard Valley, we believe great wine starts in the vineyard.
-                Our winemaker, <strong>James Wilkins</strong>, works closely with
+                Our winemaker, <strong>James Smith</strong>, works closely with
                 our viticulture team to cultivate the finest grapes that truly
                 express the unique terroir of our estate vineyards. In the cellar,
                 we take a minimal intervention approach, allowing the natural
