@@ -235,7 +235,7 @@ const Home = () => {
           />
 
           <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-            Have Your Next Event With Us!
+            Book Next Event With Us!
           </Header>
           <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
             Transform your special occasion into an unforgettable experience at Vintage Vista Vineyards. 
