@@ -132,7 +132,7 @@ const Home = () => {
           <Grid.Row>
             <Grid.Column width={8}>
               <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-                Welcome to Vintage Vista
+                Welcome to Vintage Vista Vineyards
               </Header>
               <p style={{
                 fontSize: "1.5em",
@@ -154,7 +154,7 @@ const Home = () => {
                 color: "#5C5C5C",
               }}>
                 At Vineyard Valley, we believe great wine starts in the vineyard.
-                Our winemaker, <strong>James Wilkins</strong>, works closely with
+                Our winemaker, <strong>James Smith</strong>, works closely with
                 our viticulture team to cultivate the finest grapes that truly
                 express the unique terroir of our estate vineyards. In the cellar,
                 we take a minimal intervention approach, allowing the natural
@@ -235,7 +235,7 @@ const Home = () => {
           />
 
           <Header as="h3" style={{ fontSize: "5em", fontFamily: "Fancy" }}>
-            Have Your Next Event With Us!
+            Book Next Event With Us!
           </Header>
           <p style={{ fontSize: "1.33em", fontFamily: "Baskerville" }}>
             Transform your special occasion into an unforgettable experience at Vintage Vista Vineyards. 
