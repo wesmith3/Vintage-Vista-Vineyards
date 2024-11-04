@@ -5,7 +5,6 @@ function page() {
   return (
     <div>
       <DesktopHeader />
-      My Cart
     </div>
   )
 }
