@@ -6,7 +6,6 @@ function page() {
   return (
     <div className='history'>
       <DesktopHeader />
-      Our History
     </div>
   )
 }
